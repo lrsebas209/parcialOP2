@@ -1,0 +1,36 @@
+1. 
+   a.) El acceso a recursos compartidos siempre debe realizarse desde una sección crítica.
+       
+       Es importante pues si no se cumplen pueden ocurrir problemas cuando dos o más procesos están escribiendo 
+       o leyendo algunos datos compartidos  y el resultado depende de quién se ejecuta y cuando se ejecuta.
+
+       Ejemplo: 
+       Lector/Escritor: el processo Lector se encuentra en ejecución y ha leido hasta la mitad del buffer cuando 
+       la CPU decide que este se ha ejecutado durante un tiempo suficiente, por lo cual conmuta al proceso
+       Escritor en donde este escribe en el buffer, remplazando el contenido anterior, después la CPU vuelve a 
+       conmutar al proceso Lector, el cual sigue leyendo lo que le falta del buffer.
+
+       De esta manera el Lector leyo mitad de un buffer de una noticia y la otra mitad del buffer de la otra 
+       noticia, lo cual no tiene congruencia.
+
+    b.) La sección crítica debe ser lo más pequeña posible.
+        Esto es importante pues mientras un proceso está en la sección crítica la CPU no puede conmutar de 
+        proceso por lo cual si la sección crítica es muy larga la CPU se quedará todo ese tiempo en el mismo
+        proceso
+    
+    c.) Se debe sacar una copia en la seccioón crítica de todas la variables compartidas que van a ser utilizadas.
+        Esto es importante pues las variables compartidas pueden ser modificadas por otros procesos, cambiando
+        de manera inesperada como deberia actuar el programa.
+
+        Ejemplo: 
+        Usted desea ejecutar dos procesos, los cuales aumentan la misma variable numérica y lo imprimen en 
+        pantalla. Si la variabla que se imprime en pantalla es la variable compartida esta puede no aumentar de 
+        uno a uno, pues antes de que se imprima la variable el otro proceso la puede aumentar. Para solucionar 
+        esto se debe realizar una copia de la variable compartida en la sección crítica para imprimirla después de
+        la sección crítica.
+
+    
+        
+
+     
+
