@@ -18,18 +18,18 @@ using std::cout;
 int main() {
 	SimpleSemaphore semPC("/sem",0);
 	SimpleSemaphore semCP("/sem2");
-    SimpleSemaphore semBuffer("/semBuff");
-	SharedMemory<int> sm("/sm");
-	int &i = sm();
+    SimpleSemaphore semB("/semBuff");
+	SharedMemory<int> mc("/sm");
+	int &i = mc();
 
     for (int cont=0; cont < 10; cont++){
-        cout << "Productor: esperando el buffer "<< endl;
-        semCP.Wait();
-        semBuffer.Wait();
-        i = getpid();
         sleep(3);
-        cout << "Productor: mi identificacion es: " << i << endl;
-        semBuffer.Signal();
+        cout << "productor: estoy esperando el buffer "<< endl;
+        semCP.Wait();
+        semB.Wait();
+        i = getpid();
+        cout << "productor: mi id es: " << i << endl;
+        semB.Signal();
         semPC.Signal();
     }
 }
