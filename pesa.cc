@@ -21,15 +21,26 @@ int main() {
     SharedMemory<int> dpesa3("/dpesa3");
 
     SimpleSemaphore smPesa("/smPesa",0);
-   
+    SimpleSemaphore smPesa1("/smPesa1",0);
+    SimpleSemaphore smPesa2("/smPesa2",0);
+    SimpleSemaphore smPesa3("/smPesa3",0);
 
     int &dp3 = dpesa3();
     int &dp2 = dpesa2();
     int &dp1 = dpesa1();
     
+    int &dsmpesa1 = smpesa1();
+    int &dsmpesa2 = smpesa2();
+    int &dsmpesa3 = smpesa3();
+    
     while(true){
        
-       
+       if(dp1 == 0 ){
+           sleep(3);
+           dsmpesa1.signal();
+           
+       }
+
 
 
     }  
