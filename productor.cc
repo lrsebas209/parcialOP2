@@ -2,7 +2,6 @@
 #include <SimpleSemaphore.h>
 #define __SIMPLESEMAPHORE_H_
 #endif
-
 #ifndef __SHAREDMEMORY_H_
 #include <SharedMemory.h>
 #define __SHAREDMEMORY_H_
