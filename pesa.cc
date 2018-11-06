@@ -37,10 +37,21 @@ int main() {
        
        if(dp1 == 0 ){
            sleep(3);
+           dp1 = 1;
            dsmpesa1.signal();
-           
        }
 
+       if(dp2 == 0 ){
+           sleep(3);
+           dp2 = 1;
+           dsmpesa2.signal();
+       }
+
+       if(dp3 == 0 ){
+           sleep(3);
+           dp3 = 1;
+           dsmpesa3.signal();
+       }
 
 
     }  
